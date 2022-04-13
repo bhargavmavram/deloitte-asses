@@ -1,0 +1,22 @@
+<form action = "#" th:action="@{/todoTask/save}" th:object="${todoTask}" method = "POST">
+
+	<input type="hidden" name = "loggedUserId" th:field="*{userId}"/>
+    	<input type="hidden" name = "taskId" th:field="*{taskId}"/>
+		<div class = "container">
+			<div class="row">
+				<div class="col-sm-10"> <label>Task Name</label> </div>
+				<div class="col-sm-10"> <input type = "text" th:field= "*{todoTaskName}"/> </div>
+			</div></br>
+			<div class="row">
+				<div class="col-sm-10"> <label>New Date and Time</label> </div>
+				<div class="col-sm-10"> <input type="date" th:field= "*{date}"/></div> </br></br>
+				Old Date: <p th:text="${#dates.format(todoTask.date, 'dd/MM/yyyy')}"></p>
+			</div></br>
+			<div class="row">
+				<div class="col-sm-10"> <label>Task Descrition</label> </div>
+				<div class="col-sm-10"> <textarea th:field= "*{toDoData}" rows="10" cols="30"></textarea></div>
+			</div></br>
+			<div class="row">
+				<div class="col-sm-10"><input type="submit" class="btn btn-primary" value = "Save Task"/>  </div>
+			</div>
+</form>
